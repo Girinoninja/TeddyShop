@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.barra {
+    background-color: #F0DACD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;  /* Garante que ocupe toda a largura da tela */
+}
+
+.esquerda {
+    margin-left: 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.direito {
+    margin-right: 20px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.menu-itens {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.menu-itens.mostrar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 10px;
+    z-index: 100;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1078px) {
+    .menu-horizontal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFFFFF;
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .menu-itens {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .menu-itens.mostrar {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .menu-itens li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-horizontal .logo img {
+        height: 40px; /* Ajuste o logo conforme necessário */
+    }
+
+    .menu-horizontal ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .menu-horizontal ul li {
+        text-decoration: none;
+        color: black;
+        padding: 10px 15px;
+    }
+
+    .menu-horizontal ul li a:hover,
+    .menu-horizontal ul li .submenu a:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    .submenu {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .submenu.show {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .icone-menu img {
+        height: 25px;
+        margin-left: 10px;
+    }
+}
